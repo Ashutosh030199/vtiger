@@ -1,0 +1,150 @@
+package basic;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+
+public class Vtiger1 {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.edge.driver", "./Drivers/msedgedriver.exe");
+		WebDriver driver = new EdgeDriver();
+		driver.get("https://demo.vtiger.com/vtigercrm/");
+		Thread.sleep(1000);
+		driver.manage().window().maximize();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("//button[text()='Sign in']")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("(//span[@class='app-icon fa fa-bars'])[1]")).click(); // 3 lines
+		Thread.sleep(1000);
+		
+		WebElement a = driver.findElement(By.xpath("//span[text()=' MARKETING']")); // hover on marketing
+		Actions action = new Actions(driver);
+		
+		Thread.sleep(1000);
+		action.moveToElement(a).perform();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("(//span[text()=' Contacts'])[1]")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.cssSelector("button[id='Contacts_listView_basicAction_LBL_ADD_RECORD']")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_firstname")).sendKeys("Ashutosh");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_lastname")).sendKeys("Waghmare");
+		Thread.sleep(1000);
+
+		driver.findElement(By.id("Contacts_editView_fieldName_phone")).sendKeys("02455-689954");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_mobile")).sendKeys("7276008847");
+		Thread.sleep(1000);
+//
+		driver.findElement(By.xpath("(//span[@class='select2-arrow'])[2]")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.cssSelector("(//li[@class='select2-results-dept-0 select2-result select2-result-selectable'])[1]")).click();
+		Thread.sleep(1000);
+//		
+		driver.findElement(By.id("Contacts_editView_fieldName_homephone")).sendKeys("02455-925864");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_title")).sendKeys("Construction Company");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_otherphone")).sendKeys("02455-852963");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_department")).sendKeys("Hr");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_fax")).sendKeys("147258");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_email")).sendKeys("abc@gmail.com");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_assistant")).sendKeys("Shivam");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_assistantphone")).sendKeys("9965300303");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_secondaryemail")).sendKeys("Shivam@gmail.com");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_emailoptout")).click(); //checkbox
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_donotcall")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_reference")).click(); 
+		Thread.sleep(1000);
+		
+		//
+		driver.findElement(By.id("Contacts_editView_fieldName_notify_owner")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_portal")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("//textarea[@name='mailingstreet']")).sendKeys("Shastri Road");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("//textarea[@name='otherstreet']")).sendKeys("xyz Road");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_mailingpobox")).sendKeys("xyz");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_otherpobox")).sendKeys("abc");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_mailingcity")).sendKeys("Pune");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_othercity")).sendKeys("Bangalore");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_mailingstate")).sendKeys("Maharashtra");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_otherstate")).sendKeys("Maharashtra");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_mailingzip")).sendKeys("412105");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_otherzip")).sendKeys("411009");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_mailingcountry")).sendKeys("India");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("Contacts_editView_fieldName_othercountry")).sendKeys("India");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.cssSelector("textarea[name='description']")).sendKeys("Abvdefgh");
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("//button[text()='Save']")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.cssSelector("a[class='userName dropdown-toggle pull-right']")).click(); //profilesymbol
+		Thread.sleep(1000);
+	
+		driver.findElement(By.id("menubar_item_right_LBL_SIGN_OUT")).click(); //signout
+		Thread.sleep(1000);
+	
+		driver.quit();	
+	}
+
+}
